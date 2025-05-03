@@ -5,6 +5,7 @@ import express from "express"; // -> ES Module
 
 import { handleUserSignUp } from "./controllers/user.controller.js";
 import { handleAddReview } from "./controllers/review.controller.js";
+import { handleAddMission } from "./controllers/mission.controller.js";
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ app.get('/', (req, res) => {
 app.post("/users/signup", handleUserSignUp);
 
 app.post("/users/reviews/:storeId", handleAddReview);
+
+app.post("/stores/:storeId/missions", handleAddMission);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
