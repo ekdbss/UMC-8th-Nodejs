@@ -20,3 +20,13 @@ export const handleChallengeMission = async (req, res, next) => {
 };
 
 
+export const handleGetInProgressMissions = async (req, res) => {
+  try {
+    const userId = parseInt(req.params.userId);
+    const result = await getUserInProgressMissions(userId);
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+

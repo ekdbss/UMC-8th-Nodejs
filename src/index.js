@@ -38,6 +38,9 @@ app.get("/stores/:storeId/reviews", handleListStoreReviews);
 // 내가 작성한 리뷰 목록 조회
 app.get("/reviews/:userId", getUserReviewsController);
 
+// 내가 진행 중인 미션 목록 조회
+app.get("/users/:userId/missions/in-progress", handleGetInProgressMissions);
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
