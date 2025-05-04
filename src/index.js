@@ -41,6 +41,10 @@ app.get("/reviews/:userId", getUserReviewsController);
 // 내가 진행 중인 미션 목록 조회
 app.get("/users/:userId/missions/in-progress", handleGetInProgressMissions);
 
+// 내가 진행 중인 미션을 진행 완료로 바꾸기
+app.patch("/users/:userId/missions/:missionId/complete", completeUserMissionController);
+
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

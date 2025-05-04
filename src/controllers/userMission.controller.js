@@ -30,3 +30,14 @@ export const handleGetInProgressMissions = async (req, res) => {
   }
 };
 
+
+export const completeUserMissionController = async (req, res) => {
+  const { userId, missionId } = req.params;
+
+  try {
+    const result = await completeUserMission(Number(userId), Number(missionId));
+    return res.status(200).json({ message: "미션 상태가 '진행 완료'로 변경되었습니다." });
+  } catch (err) {
+    return res.status(400).json({ error: err.message });
+  }
+};

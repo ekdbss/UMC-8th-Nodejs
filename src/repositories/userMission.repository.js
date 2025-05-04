@@ -54,6 +54,22 @@ export const getInProgressMissionsByUserId = async (userId) => {
   });
 };
 
+// 내가 진행 중인 미션을 진행 완료로 변경
+export const updateUserMissionStatus = async (userId, missionId, newStatus) => {
+  const result = await prisma.userMission.updateMany({
+    where: {
+      userId,
+      missionId,
+      status: "진행 중",
+    },
+    data: {
+      status: newStatus,
+    },
+  });
+
+  return result.count > 0;
+};
+
 /*
 import { pool } from "../db.config.js";
 
