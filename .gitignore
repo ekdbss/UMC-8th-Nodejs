@@ -1,0 +1,6 @@
+# dotenv environment variable files
+.env
+.env.*
+
+# Node modules
+node_modules/
